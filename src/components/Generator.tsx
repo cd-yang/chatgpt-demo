@@ -180,7 +180,7 @@ export default () => {
   }
 
   return (
-    <div my-6>
+    <div style={{ margin: '0 auto' }}>
       <SystemRoleSettings
         canEdit={() => messageList().length === 0}
         systemRoleEditing={systemRoleEditing}

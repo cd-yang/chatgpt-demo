@@ -1,3 +1,9 @@
+---
+import UsageInfo from '../components/UsageInfo.astro'
+---
+<div id="usageInfo" style="position:absolute; top: 0; right: 30px">
+  <UsageInfo/>
+</div>
 <button id="backtop_btn" class="gpt-back-top-btn">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +31,18 @@
 <script>
 const backtop_btn = document.getElementById('backtop_btn') as HTMLElement
 const backbottom_btn = document.getElementById('backbottom_btn') as HTMLElement
+const usageInfo = document.getElementById('usageInfo') as HTMLElement
 backtop_btn.style.display = 'none'
 backbottom_btn.style.display = 'none'
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 100)
+  if (window.scrollY > 100) {
     backtop_btn.style.display = 'block'
-  else
+    usageInfo.style.display = 'none'
+  } else {
     backtop_btn.style.display = 'none'
+    usageInfo.style.display = 'block'
+  }
 
   const scrollTop = document.documentElement.scrollTop
   const clientHeight = document.documentElement.clientHeight
